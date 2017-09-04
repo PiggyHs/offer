@@ -1,0 +1,18 @@
+    bool Find(int target, vector<vector<int> > array) {
+         if(array.empty())
+            return false;
+        int lines = array.size();   //行
+        int rows = array[0].size(); //列
+        int line = 0;
+        int row = rows-1;
+       while(line<lines && row>=0)
+            {
+            if(array[line][row] == target)
+                return true;
+            else if(array[line][row] > target)
+                row--;
+            else
+                line++;
+        }
+        return false;
+    }

@@ -1,0 +1,16 @@
+    int jumpFloor(int number) {
+        if(number == 0)
+            return 0;
+        if(number == 1)
+            return 1;
+        if(number == 2)
+            return 2;
+        int sum1 = 1,sum2 = 2;
+        for(int i = 3;i<=number;i++)
+            {
+            int sum = sum1+sum2;
+            sum1 = sum2;
+            sum2 = sum;
+        }
+        return sum2;
+    }

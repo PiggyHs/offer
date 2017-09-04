@@ -1,0 +1,16 @@
+    vector<int> printListFromTailToHead(ListNode* head) {
+        stack<int> stk;
+        vector<int> v1;
+        while(head != NULL)
+            {
+            stk.push(head->val);
+            head = head->next;
+        }
+        while(!stk.empty())
+            {
+            v1.push_back(stk.top());
+            stk.pop();
+            
+        }
+        return v1;
+    }

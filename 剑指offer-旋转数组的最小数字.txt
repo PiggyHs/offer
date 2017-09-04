@@ -1,0 +1,37 @@
+    int minNumberInRotateArray(vector<int> rotateArray) {
+        
+        if(rotateArray.size() == 0)
+            return 0;
+        
+        int left = 0;
+        int right = rotateArray.size()-1;
+        int indexMid = left;
+        while(rotateArray[left] >= rotateArray[right])
+            {
+            if(right - left == 1)
+                {
+                indexMid = right;
+                break;
+            }
+            indexMid = (left+right)/2;
+            
+            if(rotateArray[left] == rotateArray[right] && rotateArray[left] == rotateArray[indexMid])
+                return minNumber(rotateArray,left,right);
+        
+            if(rotateArray[left] <= rotateArray[indexMid])
+                left = indexMid;
+            else  if(rotateArray[indexMid]<=rotateArray[right])
+                right = indexMid;
+    }
+        return rotateArray[indexMid];
+    }
+    int minNumber(vector<int> rotateArray,int left,int right)
+        {
+        int min = rotateArray[left];
+        for(int i = left+1;i<=right;i++)
+            {
+            if(rotateArray[i]<min)
+                min = rotateArray[i];
+        }
+        return min;
+    }

@@ -1,0 +1,33 @@
+	void replaceSpace(char *str,int length) {
+        if(str == NULL ||length < 0)
+            return;
+        
+        int endofold = 0;
+        int endofnew = 0;
+        
+        int spacelength = 0;
+        int i = 0;
+        while(str[i] != '\0')
+            {
+            endofold++;
+            if(str[i] == ' ')
+                spacelength++;
+            i++;
+        }
+        
+        endofnew = endofold + spacelength*2;
+        if(endofnew > length)
+            return;
+        while(endofold >= 0 && endofnew > endofold)
+            {
+            if(str[endofold] == ' ')
+                {
+                str[endofnew--] = '0';
+                str[endofnew--] = '2';
+                str[endofnew--] = '%';
+            }
+            else
+                str[endofnew--] = str[endofold];
+            --endofold;
+        }
+	}
